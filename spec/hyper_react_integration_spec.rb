@@ -8,7 +8,6 @@ describe 'React Integration', js: true do
         render(DIV) { 'hello'}
       end
     end
-    pause
     expect(page).to have_content('hello')
     expect_evaluate_ruby("React::Component.instance_variable_get('@deprecation_messages')").to be_nil
   end
@@ -181,4 +180,209 @@ describe 'React Integration', js: true do
     end
     expect(page).to have_content('hello')
   end
+
+  # failures due to React::State::ALWAYS_UPDATE_STATE_AFTER_RENDER = true
+  # these tests are all synchronous and fail if we don't react to state change during the rendering cycle.
+
+#   1) React::Component New style setter & getter allows kernal method names like "format" to be used as state variable names
+#      Failure/Error: Unable to find matching line from backtrace
+#        expected 'Foo' with params '{}' to render '<div>yes</div>', but '<div></div>' was rendered.
+#      # $$handle_matcher@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:36030:203
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   2) React::Component New style setter & getter returns an observer with the bang method and no arguments
+#      Failure/Error: Unable to find matching line from backtrace
+#        expected 'Foo' with params '{}' to render '<div>React::Observable</div>', but '<div></div>' was rendered.
+#      # $$handle_matcher@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:36030:203
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   3) React::Component New style setter & getter returns the current value of a state when written
+#      Failure/Error: Unable to find matching line from backtrace
+#        expected 'Foo' with params '{}' to render '<div>bar</div>', but '<div></div>' was rendered.
+#      # $$handle_matcher@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:36030:203
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   4) React::Component New style setter & getter can access an explicitly defined state`
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   5) React::Component State setter & getter defines setter using `define_state`
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   6) React::Component State setter & getter defines init state by passing a block to `define_state`
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   7) React::Component State setter & getter defines getter using `define_state`
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   8) React::Component State setter & getter defines multiple state accessors by passing array to `define_state`
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   9) React::Component State setter & getter invokes `define_state` multiple times to define states
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   10) React::Component State setter & getter can initialize multiple state variables with a block
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   11) React::Component State setter & getter can mix multiple state variables with initializers and a block
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   12) React::Component State setter & getter gets state in render method
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   13) React::Component State setter & getter transforms state getter to Ruby object
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   14) React::Component Event handling works in render method
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   15) React::Observable allows to set value on Observable
+#      Failure/Error: Unable to find matching line from backtrace
+#      Exception:
+#        null is not an object (evaluating 'instance.$dom_node().innerHTML')
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   16) React::State can create dynamically initialized exported states
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   17) React::State ignores state updates during rendering
+#      Failure/Error: Unable to find matching line from backtrace
+#
+#        expected: "<span>Boom</span>"
+#             got: ""
+#
+#        (compared using ==)
+#      # $$handle_matcher@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:36030:203
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   18) Adding state to a component (second tutorial example) produces the correct result
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
+#
+#   19) Adding state to a component (second tutorial example) renders to the document
+#      Failure/Error: Unable to find matching line from backtrace
+#      NoMethodError:
+#        undefined method `after' for React::State
+#      # $$set_state@http://localhost:9999/assets/opal/rspec/sprockets_runner.js:110492:294
+#      # [native code]
+#      #
+#      #   Showing full backtrace because every line was filtered out.
+#      #   See docs for RSpec::Configuration#backtrace_exclusion_patterns and
+#      #   RSpec::Configuration#backtrace_inclusion_patterns for more information.
 end

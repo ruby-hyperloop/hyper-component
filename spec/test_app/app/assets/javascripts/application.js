@@ -1,5 +1,3 @@
-//= require 'components'
-//= require 'react_ujs'
+//= require 'hyperloop-loader'
 //= require jquery
 //= require jquery_ujs
-Opal.load('components');

@@ -1,7 +1,5 @@
-#require 'hyper-component'
-#require 'hyper-react'
 require 'hyper-spec'
-require 'hyper-store'
+require 'hyper-component'
 require 'pry'
 require 'opal-browser'
 
@@ -15,6 +13,9 @@ require 'timecop'
 RSpec.configure do |config|
   config.color = true
   config.formatter = :documentation
+  config.before(:all) do
+    `rm -rf spec/test_app/tmp/cache/`
+  end
 end
 
 # Stubbing the React calls so we can test outside of Opal
