@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mitch@catprint.com"]
 
   spec.summary       = %q{The Hyperloop rendering engine.  Write React components in Ruby.}
-  spec.homepage      = "http:://ruby-hyperloop.io"
+  spec.homepage      = "http://ruby-hyperloop.io"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
