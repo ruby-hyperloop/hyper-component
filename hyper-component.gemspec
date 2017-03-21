@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'hyper-react', '>= 0.12.0'
+  spec.add_dependency 'hyper-react', '>= 0.12.3'
   spec.add_dependency 'hyperloop-config', '>= 0.9.2'
   spec.add_dependency 'react-rails', '< 1.10.0'
   spec.add_dependency 'opal-rails', '~> 0.9.0'
