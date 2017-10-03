@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'hyper-react', '>= 0.12.3'
   spec.add_dependency 'hyperloop-config', '>= 0.9.2'
-  spec.add_dependency 'react-rails', '< 1.10.0'
-  spec.add_dependency 'opal-rails', '~> 0.9.0'
+  spec.add_dependency 'react-rails', '>= 2.3.0'
+  spec.add_dependency 'opal-rails'
 
   spec.add_development_dependency 'hyper-spec'
   spec.add_development_dependency 'listen'
@@ -36,6 +36,6 @@ Gem::Specification.new do |spec|
   # Keep linter-rubocop happy
   spec.add_development_dependency 'rubocop'
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
 end
