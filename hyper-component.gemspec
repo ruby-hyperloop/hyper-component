@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'hyperloop-config', '>= 0.9.2'
   spec.add_dependency 'react-rails', '>= 2.3.0'
   spec.add_dependency 'opal-rails'
+  spec.add_dependency 'actionview'
 
   spec.add_development_dependency 'hyper-spec'
   spec.add_development_dependency 'listen'
