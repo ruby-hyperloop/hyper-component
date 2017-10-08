@@ -1,4 +1,4 @@
-require "hyperloop/component/version"
+require 'hyperloop/component/version'
 require 'hyperloop-config'
 Hyperloop.import 'hyper-component'
 if RUBY_ENGINE == 'opal'
