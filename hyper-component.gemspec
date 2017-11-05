@@ -19,12 +19,12 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'actionview'
-  spec.add_dependency 'hyper-react', '0.15.0-autobahn-a6'
-  spec.add_dependency 'hyperloop-config', '0.15.0-autobahn-a6'
+  spec.add_dependency 'hyper-react', '0.15.0-autobahn-a8'
+  spec.add_dependency 'hyperloop-config', '0.15.0-autobahn-a8'
   spec.add_dependency 'opal-rails', '~> 0.9.3'
   spec.add_dependency 'react-rails', '~> 2.3.1'
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'hyper-spec', '0.15.0-autobahn-a6'
+  spec.add_development_dependency 'hyper-spec', '0.15.0-autobahn-a8'
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'opal'
   spec.add_development_dependency 'opal-browser'
