@@ -16,7 +16,7 @@ gem 'hyper-spec'
 gem 'opal', '~> 0.9.3'
 gem 'opal-browser'
 gem 'opal-jquery'
-gem 'therubyracer', '>= 0.12.3', platforms: :ruby
+gem 'mini_racer', '~> 0.1.14', platforms: :ruby
 
 
 group :development, :test do
