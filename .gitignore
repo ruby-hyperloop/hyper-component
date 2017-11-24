@@ -43,6 +43,8 @@ bower.json
 
 # ignore gems
 *.gem
+Gemfile.lock
 
 # ignore Idea
 .idea
+.vscode
