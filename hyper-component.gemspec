@@ -2,29 +2,34 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'hyperloop/component/version'
+require '../hyperloop/lib/hyperloop/version'
+GEM_VERSION = Hyperloop::VERSION
 
 Gem::Specification.new do |spec|
   spec.name          = 'hyper-component'
   spec.version       = Hyperloop::Component::VERSION
-  spec.authors       = ['catmando','janbiedermann']
-  spec.email         = ['mitch@catprint.com']
-
-  spec.summary       = %q{The Hyperloop rendering engine.  Write React components in Ruby.}
+  spec.authors       = ['Mitch VanDuyn','Jan Biedermann']
+  spec.email         = ['mitch@catprint.com', 'jan@kursator.com']
+  spec.summary       = %q{Write advanced React components in Ruby.}
   spec.homepage      = 'http://ruby-hyperloop.org'
   spec.license       = 'MIT'
+  spec.metadata      = {
+    homepage_uri: 'http://ruby-hyperloop.org',
+    source_code_uri: 'https://github.com/ruby-hyperloop/hyper-component'
+  }
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_dependency 'actionview', '~> 5.1.4'
-  spec.add_dependency 'hyper-react', '0.15.0-sachsenring-lap5'
-  spec.add_dependency 'hyperloop-config', '0.15.0-sachsenring-lap5'
+  spec.add_dependency 'hyper-react', GEM_VERSION
+  spec.add_dependency 'hyperloop-config', GEM_VERSION
   spec.add_dependency 'opal-rails', '~> 0.9.3'
   spec.add_dependency 'react-rails', '>= 2.3.0', '< 2.5.0'
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'hyper-spec', '0.15.0-sachsenring-lap5'
+  spec.add_development_dependency 'hyper-spec', GEM_VERSION
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'opal', '~> 0.10.5'
   spec.add_development_dependency 'opal-browser', '~> 0.2.0'
