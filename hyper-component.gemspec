@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'actionview', '=> 4.0.0'
+  spec.add_dependency 'actionview', '>= 4.0.0'
   spec.add_dependency 'hyper-react', Hyperloop::Component::VERSION
   spec.add_dependency 'hyperloop-config', Hyperloop::Component::VERSION
   spec.add_dependency 'opal-rails', '~> 0.9.3'
@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'listen'
   spec.add_development_dependency 'opal', '~> 0.10.5'
   spec.add_development_dependency 'opal-browser', '~> 0.2.0'
-  spec.add_development_dependency 'rails', '=> 4.0.0'
+  spec.add_development_dependency 'rails', '>= 4.0.0'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.7.0'
   spec.add_development_dependency 'rspec-steps', '~> 2.1.1'
