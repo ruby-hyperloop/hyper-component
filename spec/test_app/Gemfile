@@ -9,13 +9,11 @@ end
 gem 'rails'
 gem 'sqlite3'
 gem 'puma'
-gem 'jquery-rails'
 
 gem 'hyper-component', path: '../..'
 gem 'hyper-spec'
 gem 'opal', '~> 0.9.3'
 gem 'opal-browser'
-gem 'opal-jquery'
 gem 'mini_racer', '~> 0.1.14', platforms: :ruby
 
 
