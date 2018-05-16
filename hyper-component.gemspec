@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'actionview', '>= 4.0.0'
   spec.add_dependency 'hyper-react', Hyperloop::Component::VERSION
   spec.add_dependency 'hyperloop-config', Hyperloop::Component::VERSION
-  spec.add_dependency 'opal-rails', '~> 0.9.4'
   spec.add_dependency 'react-rails', '>= 2.4.0', '< 2.5.0'
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'hyper-spec', Hyperloop::Component::VERSION

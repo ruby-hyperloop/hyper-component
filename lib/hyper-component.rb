@@ -13,6 +13,5 @@ else
   require 'opal'
   require 'hyper-react'
   require 'react-rails'
-  require 'opal-rails'
   Opal.append_path(File.expand_path('../', __FILE__).untaint)
 end
